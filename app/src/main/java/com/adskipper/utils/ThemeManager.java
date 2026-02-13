@@ -22,11 +22,12 @@ public class ThemeManager {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 break;
             case PreferencesManager.THEME_DARK:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                break;
+            case PreferencesManager.THEME_RED:
+            case PreferencesManager.THEME_GREEN:
+            case PreferencesManager.THEME_ORANGE:
             case PreferencesManager.THEME_DEFAULT:
             default:
-                // Default theme uses a custom dark blue theme
+                // Default theme and colored themes use dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 break;
         }
@@ -53,6 +54,12 @@ public class ThemeManager {
                 return R.style.Theme_AdSkipper_Light;
             case PreferencesManager.THEME_DARK:
                 return R.style.Theme_AdSkipper_Dark;
+            case PreferencesManager.THEME_RED:
+                return R.style.Theme_AdSkipper_Red;
+            case PreferencesManager.THEME_GREEN:
+                return R.style.Theme_AdSkipper_Green;
+            case PreferencesManager.THEME_ORANGE:
+                return R.style.Theme_AdSkipper_Orange;
             case PreferencesManager.THEME_DEFAULT:
             default:
                 return R.style.Theme_AdSkipper;

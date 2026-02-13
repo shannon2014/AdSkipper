@@ -58,6 +58,9 @@
     <string name="theme_default">Default (Dark Blue)</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_light">Light</string>
+    <string name="theme_red">Red</string>
+    <string name="theme_green">Green</string>
+    <string name="theme_orange">Orange</string>
     <string name="detection_sensitivity">Detection Sensitivity</string>
     <string name="sensitivity_desc">Adjust how aggressively the app detects skip buttons</string>
     <string name="clear_data">Clear All Data</string>

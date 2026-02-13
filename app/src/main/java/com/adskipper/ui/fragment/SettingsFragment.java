@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,13 +21,15 @@ import com.adskipper.data.PreferencesManager;
 import com.adskipper.data.SkipDatabase;
 import com.adskipper.utils.ThemeManager;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 
 public class SettingsFragment extends Fragment {
 
     private PreferencesManager prefsManager;
 
-    private RadioGroup radioGroupTheme;
+    private List<RadioButton> themeRadioButtons;
     private CardView cardClearData;
     private TextView tvVersion;
 
@@ -50,7 +52,14 @@ public class SettingsFragment extends Fragment {
     }
 
     private void initViews(View view) {
-        radioGroupTheme = view.findViewById(R.id.radio_group_theme);
+        themeRadioButtons = new ArrayList<>();
+        themeRadioButtons.add(view.findViewById(R.id.radio_theme_default));
+        themeRadioButtons.add(view.findViewById(R.id.radio_theme_dark));
+        themeRadioButtons.add(view.findViewById(R.id.radio_theme_light));
+        themeRadioButtons.add(view.findViewById(R.id.radio_theme_red));
+        themeRadioButtons.add(view.findViewById(R.id.radio_theme_green));
+        themeRadioButtons.add(view.findViewById(R.id.radio_theme_orange));
+
         cardClearData = view.findViewById(R.id.card_clear_data);
         tvVersion = view.findViewById(R.id.tv_version);
     }
@@ -58,16 +67,31 @@ public class SettingsFragment extends Fragment {
     private void loadSettings() {
         // Load theme
         String theme = prefsManager.getTheme();
+        int checkId;
         switch (theme) {
-            case PreferencesManager.THEME_DEFAULT:
-                radioGroupTheme.check(R.id.radio_theme_default);
-                break;
             case PreferencesManager.THEME_DARK:
-                radioGroupTheme.check(R.id.radio_theme_dark);
+                checkId = R.id.radio_theme_dark;
                 break;
             case PreferencesManager.THEME_LIGHT:
-                radioGroupTheme.check(R.id.radio_theme_light);
+                checkId = R.id.radio_theme_light;
                 break;
+            case PreferencesManager.THEME_RED:
+                checkId = R.id.radio_theme_red;
+                break;
+            case PreferencesManager.THEME_GREEN:
+                checkId = R.id.radio_theme_green;
+                break;
+            case PreferencesManager.THEME_ORANGE:
+                checkId = R.id.radio_theme_orange;
+                break;
+            case PreferencesManager.THEME_DEFAULT:
+            default:
+                checkId = R.id.radio_theme_default;
+                break;
+        }
+
+        for (RadioButton btn : themeRadioButtons) {
+            btn.setChecked(btn.getId() == checkId);
         }
 
         // Load version
@@ -83,20 +107,45 @@ public class SettingsFragment extends Fragment {
     }
 
     private void setupListeners() {
-        // Theme selection
-        radioGroupTheme.setOnCheckedChangeListener((group, checkedId) -> {
+        // Theme selection - Manual implementation since we are not using RadioGroup
+        View.OnClickListener themeClickListener = v -> {
+            RadioButton clickedBtn = (RadioButton) v;
+            
+            // Uncheck all others
+            for (RadioButton btn : themeRadioButtons) {
+                if (btn != clickedBtn) {
+                    btn.setChecked(false);
+                }
+            }
+            // Ensure clicked is checked
+            clickedBtn.setChecked(true);
+
+            // Apply theme
+            int checkedId = clickedBtn.getId();
             String theme;
             if (checkedId == R.id.radio_theme_default) {
                 theme = PreferencesManager.THEME_DEFAULT;
             } else if (checkedId == R.id.radio_theme_dark) {
                 theme = PreferencesManager.THEME_DARK;
-            } else {
+            } else if (checkedId == R.id.radio_theme_light) {
                 theme = PreferencesManager.THEME_LIGHT;
+            } else if (checkedId == R.id.radio_theme_red) {
+                theme = PreferencesManager.THEME_RED;
+            } else if (checkedId == R.id.radio_theme_green) {
+                theme = PreferencesManager.THEME_GREEN;
+            } else if (checkedId == R.id.radio_theme_orange) {
+                theme = PreferencesManager.THEME_ORANGE;
+            } else {
+                theme = PreferencesManager.THEME_DEFAULT;
             }
 
             ThemeManager.setTheme(requireContext(), theme);
             requireActivity().recreate();
-        });
+        };
+
+        for (RadioButton btn : themeRadioButtons) {
+            btn.setOnClickListener(themeClickListener);
+        }
 
         // Clear data
         cardClearData.setOnClickListener(v -> showClearDataDialog());

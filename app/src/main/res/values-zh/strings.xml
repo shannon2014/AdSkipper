@@ -58,6 +58,9 @@
     <string name="theme_default">默认 (深蓝)</string>
     <string name="theme_dark">深色</string>
     <string name="theme_light">浅色</string>
+    <string name="theme_red">红色</string>
+    <string name="theme_green">绿色</string>
+    <string name="theme_orange">橙色</string>
     <string name="detection_sensitivity">检测灵敏度</string>
     <string name="sensitivity_desc">调整应用检测跳过按钮的积极程度</string>
     <string name="clear_data">清除所有数据</string>

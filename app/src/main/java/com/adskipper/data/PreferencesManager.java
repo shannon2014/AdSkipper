@@ -15,6 +15,9 @@ public class PreferencesManager {
     public static final String THEME_DEFAULT = "default";
     public static final String THEME_DARK = "dark";
     public static final String THEME_LIGHT = "light";
+    public static final String THEME_RED = "red";
+    public static final String THEME_GREEN = "green";
+    public static final String THEME_ORANGE = "orange";
 
     private final SharedPreferences prefs;
 

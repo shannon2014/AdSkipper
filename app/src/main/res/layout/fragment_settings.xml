@@ -46,36 +46,85 @@
                     android:fontFamily="sans-serif-medium"
                     android:layout_marginBottom="12dp" />
 
-                <RadioGroup
-                    android:id="@+id/radio_group_theme"
+                <!-- 2 Columns Grid Layout for Themes -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <RadioButton
-                        android:id="@+id/radio_theme_default"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/theme_default"
-                        android:textColor="?attr/secondaryTextColor"
-                        android:checked="true"
-                        android:padding="8dp" />
+                        android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radio_theme_dark"
+                        <RadioButton
+                            android:id="@+id/radio_theme_default"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/theme_default"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_theme_dark"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/theme_dark"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:padding="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/theme_dark"
-                        android:textColor="?attr/secondaryTextColor"
-                        android:padding="8dp" />
+                        android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radio_theme_light"
+                        <RadioButton
+                            android:id="@+id/radio_theme_light"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/theme_light"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_theme_red"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/theme_red"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:padding="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/theme_light"
-                        android:textColor="?attr/secondaryTextColor"
-                        android:padding="8dp" />
-                </RadioGroup>
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_theme_green"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/theme_green"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_theme_orange"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/theme_orange"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:padding="8dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
