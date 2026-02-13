@@ -1,5 +1,6 @@
 package com.adskipper.ui.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class SkipRecordAdapter extends RecyclerView.Adapter<SkipRecordAdapter.Vi
 
     private List<SkipRecord> records = new ArrayList<>();
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+    private Context context;
 
     public void setRecords(List<SkipRecord> records) {
         this.records = records;
@@ -31,7 +33,8 @@ public class SkipRecordAdapter extends RecyclerView.Adapter<SkipRecordAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        context = parent.getContext();
+        View view = LayoutInflater.from(context)
                 .inflate(R.layout.item_skip_record, parent, false);
         return new ViewHolder(view);
     }
@@ -43,10 +46,25 @@ public class SkipRecordAdapter extends RecyclerView.Adapter<SkipRecordAdapter.Vi
         holder.tvAppName.setText(record.getAppName());
 
         String time = timeFormat.format(new Date(record.getTimestamp()));
-        String adType = record.getAdType();
-        holder.tvSkipInfo.setText(time + " • " + adType);
+        
+        String adTypeKey = record.getAdType();
+        String adTypeDisplay;
+        if ("startup".equals(adTypeKey)) {
+            adTypeDisplay = context.getString(R.string.startup_ad);
+        } else if ("interstitial".equals(adTypeKey)) {
+            adTypeDisplay = context.getString(R.string.interstitial_ad);
+        } else if ("video".equals(adTypeKey)) {
+            adTypeDisplay = context.getString(R.string.video_ad);
+        } else if ("bumper".equals(adTypeKey)) {
+             adTypeDisplay = context.getString(R.string.bumper_ad);
+        } else {
+            // Fallback to whatever is stored if it doesn't match keys
+            adTypeDisplay = adTypeKey;
+        }
+        
+        holder.tvSkipInfo.setText(time + " • " + adTypeDisplay);
 
-        holder.tvTimeSavedBadge.setText("Saved " + record.getTimeSavedSeconds() + "s");
+        holder.tvTimeSavedBadge.setText(context.getString(R.string.saved_time, record.getTimeSavedSeconds()));
     }
 
     @Override

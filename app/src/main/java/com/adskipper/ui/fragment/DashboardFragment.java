@@ -160,8 +160,16 @@ public class DashboardFragment extends Fragment {
         // 垃圾小米手机，大概率不准，这里再试一下
         if (!prefsManager.isServiceEnabled()) {
             new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
-                updateServiceStatus();
-                updateBatteryIgnoringStatus();
+                if (isAdded()) {
+                    updateServiceStatus();
+                }
+            }, 500);
+        }
+        if (!prefsManager.isBatterySetupDone()) {
+            new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+                if (isAdded()) {
+                    updateBatteryIgnoringStatus();
+                }
             }, 500);
         }
     }

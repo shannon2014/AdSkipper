@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ad Skipper</string>
+
+    <!-- Accessibility Service -->
+    <string name="accessibility_service_description">自动检测并跳过其他应用中的启动广告。此服务通过监控应用窗口来查找并点击跳过按钮。</string>
+
+    <!-- Main Screen -->
+    <string name="total_ads_skipped">已跳过广告总数</string>
+    <string name="time_saved">已节省时间</string>
+    <string name="skipped_today">今日跳过</string>
+    <string name="service_status">服务状态</string>
+    <string name="active_protected">运行中 &amp; 受保护</string>
+    <string name="inactive">未运行</string>
+    <string name="accessibility_permission_needed">第一步：请先开启AdSkipper的无障碍服务</string>
+    <string name="accessibility_battery_needed">第二步：请开启忽略电池优化和自启动权限\n注意不同机型可能有不同描述，如oppo:耗电管理-完全允许后台行为；小米：省电策略：不限制</string>
+    <string name="grant_permission">去开启无障碍服务</string>
+    <string name="grant_battery">去开启忽略电池优化</string>
+    <string name="management">管理</string>
+    <string name="monitored_apps">受控应用</string>
+    <string name="apps_count">%d 个应用</string>
+
+    <!-- Navigation -->
+    <string name="dashboard">仪表盘</string>
+    <string name="history">历史记录</string>
+    <string name="settings">设置</string>
+
+    <!-- History Screen -->
+    <string name="skip_history">跳过记录</string>
+    <string name="total_time_saved">总节省时间</string>
+    <string name="across_apps">覆盖 %d 个应用</string>
+    <string name="efficiency_up">本周效率提升 %d%%</string>
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="skips_count">跳过 %d 次</string>
+    <string name="startup_ad">开屏广告</string>
+    <string name="interstitial_ad">插页广告</string>
+    <string name="video_ad">视频广告</string>
+    <string name="bumper_ad">缓冲广告</string>
+    <string name="saved_time">节省 %d秒</string>
+    <string name="on_device_storage">本地存储</string>
+    <string name="storage_notice">日志仅存储在您的手机上，用于显示节省统计数据。不会向外部共享任何应用数据。</string>
+
+    <!-- Monitored Apps -->
+    <string name="manage_target_apps">管理目标应用</string>
+    <string name="search_apps">搜索应用…</string>
+    <string name="all_apps">所有应用</string>
+    <string name="recently_used">最近使用</string>
+    <string name="service_active">服务已激活</string>
+    <string name="service_active_desc">AdSkipper 正在监控 %d 个应用。在下方切换开关以启用/禁用。</string>
+    <string name="last_used">上次使用：%s</string>
+    <string name="not_monitored">未监控</string>
+    <string name="apply_changes">应用更改</string>
+    <string name="select_all">全选</string>
+
+    <!-- Settings -->
+    <string name="theme">主题</string>
+    <string name="theme_default">默认 (深蓝)</string>
+    <string name="theme_dark">深色</string>
+    <string name="theme_light">浅色</string>
+    <string name="detection_sensitivity">检测灵敏度</string>
+    <string name="sensitivity_desc">调整应用检测跳过按钮的积极程度</string>
+    <string name="clear_data">清除所有数据</string>
+    <string name="clear_data_desc">删除所有跳过历史和统计数据</string>
+    <string name="about">关于</string>
+    <string name="version">版本 %s</string>
+
+    <!-- About Section -->
+    <string name="author">作者：Daniel</string>
+    <string name="about_disclaimer">本APP仅用于技术交流，严禁用于商业用途。\n阁下若肯慷慨解囊，惠赐些散碎银两，在下也好换几壶浊酒解馋，定当感激不尽！</string>
+    <string name="scan_donate">扫码加入 / 捐赠</string>
+
+    <!-- Time formats -->
+    <string name="time_format_hours">%d小时 %d分</string>
+    <string name="time_format_minutes">%d分</string>
+    <string name="time_format_seconds">%d秒</string>
+
+    <!-- Dialogs -->
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="clear_data_confirm">您确定要删除所有跳过历史记录吗？此操作无法撤销。</string>
+
+    <!-- Relative time -->
+    <string name="time_5m_ago">5分钟前</string>
+    <string name="time_2h_ago">2小时前</string>
+    <string name="time_1w_ago">1周前</string>
+    <string name="time_3h_ago">3小时前</string>
+    <string name="time_yesterday">昨天</string>
+    <string name="time_today">今天</string>
+</resources>

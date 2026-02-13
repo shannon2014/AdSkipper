@@ -75,7 +75,7 @@ public class SettingsFragment extends Fragment {
             PackageInfo pInfo = requireContext().getPackageManager().getPackageInfo(requireContext().getPackageName(), 0);
             String version = pInfo.versionName;
             if (tvVersion != null) {
-                tvVersion.setText("Version " + version);
+                tvVersion.setText(getString(R.string.version, version));
             }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -118,7 +118,7 @@ public class SettingsFragment extends Fragment {
             database.appPreferenceDao().deleteAll();
 
             requireActivity().runOnUiThread(() -> {
-                Toast.makeText(requireContext(), "All data cleared", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.data_cleared, Toast.LENGTH_SHORT).show();
             });
         });
     }

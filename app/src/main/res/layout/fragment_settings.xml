@@ -147,9 +147,9 @@
             <!-- Replace src with your actual QR code drawable (e.g., @drawable/ic_wechat_qr) -->
             <ImageView
                 android:id="@+id/iv_qrcode"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/icon_wechat_group"
+                android:layout_width="303dp"
+                android:layout_height="539dp"
+                android:src="@drawable/icon_qq_group"
                 android:background="?attr/cardBackgroundColorElevated"
                 android:scaleType="centerInside"
                 android:padding="8dp" />
@@ -157,7 +157,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Scan to join / Donate"
+                android:text="@string/scan_donate"
                 android:textColor="?attr/tertiaryTextColor"
                 android:textSize="12sp"
                 android:layout_marginTop="8dp" />

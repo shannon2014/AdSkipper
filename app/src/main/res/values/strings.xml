@@ -12,10 +12,10 @@
     <string name="service_status">Service Status</string>
     <string name="active_protected">Active &amp; Protected</string>
     <string name="inactive">Inactive</string>
-    <string name="accessibility_permission_needed">第一步：请先开启AdSkipper的无障碍服务</string>
-    <string name="accessibility_battery_needed">第二步：请开启忽略电池优化和自启动权限\n注意不同机型可能有不同描述，如oppo:耗电管理-完全允许后台行为；小米：省电策略：不限制</string>
-    <string name="grant_permission">去开启无障碍服务</string>
-    <string name="grant_battery">去开启忽略电池优化</string>
+    <string name="accessibility_permission_needed">Step 1: Enable Accessibility Service</string>
+    <string name="accessibility_battery_needed">Step 2: Disable Battery Optimization\nNote: Settings vary by device (e.g. OPPO: Allow background activity; Xiaomi: No restrictions)</string>
+    <string name="grant_permission">Enable Accessibility</string>
+    <string name="grant_battery">Disable Battery Opt.</string>
     <string name="management">MANAGEMENT</string>
     <string name="monitored_apps">Monitored Apps</string>
     <string name="apps_count">%d Apps</string>
@@ -47,7 +47,7 @@
     <string name="all_apps">All Apps</string>
     <string name="recently_used">Recently Used</string>
     <string name="service_active">Service Active</string>
-    <string name="service_active_desc">SkipAds is monitoring %d apps. Toggle apps below to enable/disable.</string>
+    <string name="service_active_desc">AdSkipper is monitoring %d apps. Toggle apps below to enable/disable.</string>
     <string name="last_used">Last used: %s</string>
     <string name="not_monitored">Not monitored</string>
     <string name="apply_changes">Apply Changes</string>
@@ -64,10 +64,12 @@
     <string name="clear_data_desc">Delete all skip history and statistics</string>
     <string name="about">About</string>
     <string name="version">Version %s</string>
+    <string name="data_cleared" translatable="false">All data cleared</string>
 
     <!-- About Section -->
     <string name="author">Author: Daniel</string>
-    <string name="about_disclaimer">本APP仅用于技术交流，严禁用于商业用途，请加入微信群交流。\n兄台若肯慷慨解囊，惠赐些许碎银，在下也好换几壶浊酒解馋，定当感激不尽！</string>
+    <string name="about_disclaimer">This app is for educational purposes only. Commercial use is prohibited.\nIf you would be so generous as to offer me some loose change, I could exchange it for a few jugs of wine to satisfy my craving. I would be eternally grateful!</string>
+    <string name="scan_donate">Scan to join / Donate</string>
 
     <!-- Time formats -->
     <string name="time_format_hours">%dh %dm</string>
