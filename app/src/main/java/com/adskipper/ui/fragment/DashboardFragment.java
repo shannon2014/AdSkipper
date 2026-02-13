@@ -2,6 +2,7 @@ package com.adskipper.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.adskipper.R;
 import com.adskipper.data.PreferencesManager;
-import com.adskipper.service.SelfSettingNavigator;
 import com.adskipper.ui.MonitoredAppsActivity;
 import com.adskipper.ui.viewmodel.DashboardViewModel;
 import com.adskipper.utils.PermissionHelper;
@@ -28,12 +28,12 @@ public class DashboardFragment extends Fragment {
     private PreferencesManager prefsManager;
 
     private TextView tvTotalSkipped;
-    private TextView tvTimeSaved;
-    private TextView tvSkippedToday;
     private TextView tvMonitoredCount;
     private SwitchMaterial switchAdSkipping;
     private View layoutPermissionNotice;
+    private View layoutBatteryNotice;
     private MaterialButton btnGrantPermission;
+    private MaterialButton btnGrantBattery;
     private CardView cardMonitoredApps;
 
     @Nullable
@@ -54,16 +54,17 @@ public class DashboardFragment extends Fragment {
         setupListeners();
         observeData();
         updateServiceStatus();
+        updateBatteryIgnoringStatus();
     }
 
     private void initViews(View view) {
         tvTotalSkipped = view.findViewById(R.id.tv_total_skipped);
-        tvTimeSaved = view.findViewById(R.id.tv_time_saved);
-        tvSkippedToday = view.findViewById(R.id.tv_skipped_today);
         tvMonitoredCount = view.findViewById(R.id.tv_monitored_count);
         switchAdSkipping = view.findViewById(R.id.switch_ad_skipping);
         layoutPermissionNotice = view.findViewById(R.id.layout_permission_notice);
+        layoutBatteryNotice = view.findViewById(R.id.layout_battery_notice);
         btnGrantPermission = view.findViewById(R.id.btn_grant_permission);
+        btnGrantBattery = view.findViewById(R.id.btn_grant_battrey);
         cardMonitoredApps = view.findViewById(R.id.card_monitored_apps);
     }
 
@@ -84,6 +85,10 @@ public class DashboardFragment extends Fragment {
             Intent intent = new Intent(requireContext(), MonitoredAppsActivity.class);
             startActivity(intent);
         });
+
+        btnGrantBattery.setOnClickListener(v -> {
+            PermissionHelper.openAppSettings(requireContext());
+        });
     }
 
     private void observeData() {
@@ -93,23 +98,23 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        viewModel.getTotalTimeSaved().observe(getViewLifecycleOwner(), seconds -> {
-            if (seconds != null) {
-                tvTimeSaved.setText(formatTime(seconds));
-            }
-        });
-
-        viewModel.getTodaySkipCount().observe(getViewLifecycleOwner(), count -> {
-            if (count != null) {
-                tvSkippedToday.setText(String.valueOf(count));
-            }
-        });
-
         viewModel.getMonitoredAppsCount().observe(getViewLifecycleOwner(), count -> {
             if (count != null) {
                 tvMonitoredCount.setText(getString(R.string.apps_count, count));
             }
         });
+    }
+
+    private void updateBatteryIgnoringStatus() {
+        boolean isBatteryIgnoring = PermissionHelper.isBatteryIgnoring(requireContext());
+        Log.d("hegui", "updateBatteryIgnoringStatus() isBatteryIgnoring = " + isBatteryIgnoring);
+        if (isBatteryIgnoring) {
+            prefsManager.setBatterySetupDone(true);
+            layoutBatteryNotice.setVisibility(View.GONE);
+        } else {
+            prefsManager.setBatterySetupDone(false);
+            layoutBatteryNotice.setVisibility(View.VISIBLE);
+        }
     }
 
     private void updateServiceStatus() {
@@ -151,10 +156,12 @@ public class DashboardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         updateServiceStatus();
+        updateBatteryIgnoringStatus();
         // 垃圾小米手机，大概率不准，这里再试一下
         if (!prefsManager.isServiceEnabled()) {
             new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
                 updateServiceStatus();
+                updateBatteryIgnoringStatus();
             }, 500);
         }
     }

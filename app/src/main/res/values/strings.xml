@@ -12,8 +12,10 @@
     <string name="service_status">Service Status</string>
     <string name="active_protected">Active &amp; Protected</string>
     <string name="inactive">Inactive</string>
-    <string name="accessibility_permission_needed">Accessibility permission is needed to detect and skip ads automatically in background apps.</string>
-    <string name="grant_permission">Grant Permission</string>
+    <string name="accessibility_permission_needed">第一步：请先开启AdSkipper的无障碍服务</string>
+    <string name="accessibility_battery_needed">第二步：请开启忽略电池优化和自启动权限\n注意不同机型可能有不同描述，如oppo:耗电管理-完全允许后台行为；小米：省电策略：不限制</string>
+    <string name="grant_permission">去开启无障碍服务</string>
+    <string name="grant_battery">去开启忽略电池优化</string>
     <string name="management">MANAGEMENT</string>
     <string name="monitored_apps">Monitored Apps</string>
     <string name="apps_count">%d Apps</string>

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ServiceInfo;
+import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.accessibility.AccessibilityManager;
 
@@ -33,6 +34,17 @@ public class PermissionHelper {
         }
         
         return false;
+    }
+
+    public static boolean isBatteryIgnoring(Context context){
+        // Auto-setup: open battery settings if not done yet
+        // Check actual system state first
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        boolean isIgnoring = false;
+        if (pm != null) {
+            isIgnoring = pm.isIgnoringBatteryOptimizations(context.getPackageName());
+        }
+        return isIgnoring;
     }
     
     /**

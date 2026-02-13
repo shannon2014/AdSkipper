@@ -22,14 +22,6 @@
             android:fontFamily="sans-serif-medium"
             android:layout_marginBottom="8dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="System Monitoring"
-            android:textColor="?attr/secondaryTextColor"
-            android:textSize="14sp"
-            android:layout_marginBottom="24dp" />
-
         <!-- Stats Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -61,70 +53,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/total_ads_skipped"
                     android:textColor="?attr/secondaryTextColor"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="24dp" />
-
-                <!-- Time Saved and Today Stats -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="?attr/cardBackgroundColorElevated"
-                        android:padding="16dp"
-                        android:layout_marginEnd="8dp">
-
-                        <TextView
-                            android:id="@+id/tv_time_saved"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="?attr/primaryTextColor"
-                            android:textSize="28sp"
-                            android:fontFamily="sans-serif-medium" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/time_saved"
-                            android:textColor="?attr/tertiaryTextColor"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="?attr/cardBackgroundColorElevated"
-                        android:padding="16dp"
-                        android:layout_marginStart="8dp">
-
-                        <TextView
-                            android:id="@+id/tv_skipped_today"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="?attr/primaryTextColor"
-                            android:textSize="28sp"
-                            android:fontFamily="sans-serif-medium" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/skipped_today"
-                            android:textColor="?attr/tertiaryTextColor"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                    android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -192,15 +121,13 @@
             app:cardBackgroundColor="?attr/cardBackgroundColor"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="16dp"
                 android:padding="16dp"
-                android:background="?attr/cardBackgroundColorElevated"
                 android:visibility="visible">
 
                 <LinearLayout
@@ -237,6 +164,57 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- battery Status Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layout_battery_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/cardBackgroundColor"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_dialog_info"
+                        app:tint="?attr/iconTint" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/accessibility_battery_needed"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_grant_battrey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/grant_battery"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/primary_blue"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Management Section -->
         <TextView
@@ -254,6 +232,7 @@
             android:id="@+id/card_monitored_apps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"

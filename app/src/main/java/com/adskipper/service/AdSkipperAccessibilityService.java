@@ -47,10 +47,6 @@ public class AdSkipperAccessibilityService extends AccessibilityService {
     private String lastClickedPackage = "";
     private long lastClickTime = 0;
 
-    // Battery optimization auto-setup state
-    private boolean batterySetupInProgress = false;
-    private long batterySetupStartTime = 0;
-    private static final long BATTERY_SETUP_TIMEOUT_MS = 30_000; // 30 seconds max
 
     @Override
     public void onCreate() {
@@ -73,18 +69,6 @@ public class AdSkipperAccessibilityService extends AccessibilityService {
 
         // Mark service as enabled in preferences
         prefsManager.setServiceEnabled(true);
-
-        // Auto-setup: open battery settings if not done yet
-        if (!prefsManager.isBatterySetupDone()) {
-            Log.d(TAG, "Starting battery optimization auto-setup");
-            batterySetupInProgress = true;
-            batterySetupStartTime = System.currentTimeMillis();
-
-            // Delay slightly to let the service fully initialize
-            new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
-                SelfSettingNavigator.openBatterySettings(this);
-            }, 1500);
-        }
     }
 
     @Override
@@ -137,24 +121,6 @@ public class AdSkipperAccessibilityService extends AccessibilityService {
 
         try {
             // 0) Battery optimization auto-setup (time-limited)
-            if (batterySetupInProgress) {
-                long elapsed = System.currentTimeMillis() - batterySetupStartTime;
-                if (elapsed > BATTERY_SETUP_TIMEOUT_MS) {
-                    // Timed out — mark as done to avoid retrying forever
-                    Log.d(TAG, "Battery setup timed out, marking done");
-                    batterySetupInProgress = false;
-                    prefsManager.setBatterySetupDone(true);
-                } else {
-                    String appLabel = getString(getApplicationInfo().labelRes);
-                    if (BatterySettingAutoClicker.tryAutoSetup(rootNode, packageName, appLabel)) {
-                        Log.d(TAG, "Battery auto-setup clicked successfully");
-                        // Don't mark done immediately — may need multiple clicks
-                        // (e.g. first click finds our app, second click selects "unrestricted")
-                        // Mark done after a second successful click or timeout
-                    }
-                    return; // Don't do ad-skipping during battery setup
-                }
-            }
 
             // 1) Try auto-granting permissions first
             if (PermissionAutoGranter.tryAutoGrant(rootNode, packageName, this)) {
