@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    
+    <!-- Base Application Theme - Default (Dark Blue) -->
+    <style name="Theme.AdSkipper" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryDark">@color/primary_blue_dark</item>
+        <item name="colorAccent">@color/primary_blue_light</item>
+
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:navigationBarColor">@color/background_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <!-- Custom Attributes -->
+        <item name="backgroundColor">@color/background_dark</item>
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardBackgroundColorElevated">@color/background_card_elevated</item>
+        <item name="primaryTextColor">@color/text_primary</item>
+        <item name="secondaryTextColor">@color/text_secondary</item>
+        <item name="tertiaryTextColor">@color/text_tertiary</item>
+        <item name="iconTint">@color/primary_blue</item>
+        <item name="dividerColor">@color/divider</item>
+    </style>
+    
+    <!-- Dark Theme -->
+    <style name="Theme.AdSkipper.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryDark">@color/primary_blue_dark</item>
+        <item name="colorAccent">@color/primary_blue_light</item>
+
+        <item name="android:windowBackground">@color/background_pure_dark</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <item name="android:statusBarColor">@color/background_pure_dark</item>
+        <item name="android:navigationBarColor">@color/background_pure_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <!-- Custom Attributes -->
+        <item name="backgroundColor">@color/background_pure_dark</item>
+        <item name="cardBackgroundColor">@color/background_pure_dark_card</item>
+        <item name="cardBackgroundColorElevated">@color/background_pure_dark_card_elevated</item>
+        <item name="primaryTextColor">@color/text_primary</item>
+        <item name="secondaryTextColor">@color/text_secondary</item>
+        <item name="tertiaryTextColor">@color/text_tertiary</item>
+        <item name="iconTint">@color/primary_blue</item>
+        <item name="dividerColor">@color/divider</item>
+    </style>
+    
+    <!-- Light Theme -->
+    <style name="Theme.AdSkipper.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryDark">@color/primary_blue_dark</item>
+        <item name="colorAccent">@color/primary_blue_light</item>
+
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:textColorPrimary">@color/text_light_primary</item>
+        <item name="android:textColorSecondary">@color/text_light_secondary</item>
+
+        <item name="android:statusBarColor">@color/background_light</item>
+        <item name="android:navigationBarColor">@color/background_light</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <!-- Custom Attributes -->
+        <item name="backgroundColor">@color/background_light</item>
+        <item name="cardBackgroundColor">@color/background_light_card</item>
+        <item name="cardBackgroundColorElevated">@color/background_light_card_elevated</item>
+        <item name="primaryTextColor">@color/text_light_primary</item>
+        <item name="secondaryTextColor">@color/text_light_secondary</item>
+        <item name="tertiaryTextColor">@color/text_light_tertiary</item>
+        <item name="iconTint">@color/primary_blue</item>
+        <item name="dividerColor">@color/divider_light</item>
+    </style>
+    
+    <!-- Card Style -->
+    <style name="CardStyle">
+        <item name="android:layout_margin">16dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">?attr/cardBackgroundColor</item>
+    </style>
+    
+    <!-- Button Style -->
+    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/primary_blue</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    
+    <!-- Text Styles -->
+    <style name="TextAppearance.Title" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">?attr/primaryTextColor</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    
+    <style name="TextAppearance.Subtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">?attr/secondaryTextColor</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <style name="TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">?attr/tertiaryTextColor</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/item_skip_record.xml",
+        "source": "com.adskipper.app-main-49:/layout/item_skip_record.xml"
+    },
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/fragment_settings.xml",
+        "source": "com.adskipper.app-main-49:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/fragment_history.xml",
+        "source": "com.adskipper.app-main-49:/layout/fragment_history.xml"
+    },
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/activity_main.xml",
+        "source": "com.adskipper.app-main-49:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/item_app.xml",
+        "source": "com.adskipper.app-main-49:/layout/item_app.xml"
+    },
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/fragment_dashboard.xml",
+        "source": "com.adskipper.app-main-49:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.adskipper.app-mergeDebugResources-46:/layout/activity_monitored_apps.xml",
+        "source": "com.adskipper.app-main-49:/layout/activity_monitored_apps.xml"
+    }
+]

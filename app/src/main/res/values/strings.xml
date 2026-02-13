@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ad Skipper</string>
+    
+    <!-- Accessibility Service -->
+    <string name="accessibility_service_description">Automatically detect and skip startup ads in other apps. This service monitors app windows to find and click skip buttons.</string>
+    
+    <!-- Main Screen -->
+    <string name="total_ads_skipped">TOTAL ADS SKIPPED</string>
+    <string name="time_saved">TIME SAVED</string>
+    <string name="skipped_today">SKIPPED TODAY</string>
+    <string name="service_status">Service Status</string>
+    <string name="active_protected">Active &amp; Protected</string>
+    <string name="inactive">Inactive</string>
+    <string name="accessibility_permission_needed">Accessibility permission is needed to detect and skip ads automatically in background apps.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="management">MANAGEMENT</string>
+    <string name="monitored_apps">Monitored Apps</string>
+    <string name="apps_count">%d Apps</string>
+    
+    <!-- Navigation -->
+    <string name="dashboard">Dashboard</string>
+    <string name="history">History</string>
+    <string name="settings">Settings</string>
+    
+    <!-- History Screen -->
+    <string name="skip_history">Skip History</string>
+    <string name="total_time_saved">TOTAL TIME SAVED</string>
+    <string name="across_apps">Across %d apps</string>
+    <string name="efficiency_up">Efficiency up %d%% this week</string>
+    <string name="today">TODAY</string>
+    <string name="yesterday">YESTERDAY</string>
+    <string name="skips_count">%d SKIPS</string>
+    <string name="startup_ad">Startup Ad</string>
+    <string name="interstitial_ad">Interstitial</string>
+    <string name="video_ad">Video Ad</string>
+    <string name="bumper_ad">Bumper Ad</string>
+    <string name="saved_time">Saved %ds</string>
+    <string name="on_device_storage">ON-DEVICE STORAGE</string>
+    <string name="storage_notice">Logs are only stored on your phone and are used to display your saving statistics. No app data is shared externally.</string>
+    
+    <!-- Monitored Apps -->
+    <string name="manage_target_apps">Manage Target Apps</string>
+    <string name="search_apps">Search apps…</string>
+    <string name="all_apps">All Apps</string>
+    <string name="recently_used">Recently Used</string>
+    <string name="service_active">Service Active</string>
+    <string name="service_active_desc">SkipAds is monitoring %d apps. Toggle apps below to enable/disable.</string>
+    <string name="last_used">Last used: %s</string>
+    <string name="not_monitored">Not monitored</string>
+    <string name="apply_changes">Apply Changes</string>
+    <string name="select_all">Select All</string>
+    
+    <!-- Settings -->
+    <string name="theme">Theme</string>
+    <string name="theme_default">Default (Dark Blue)</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_light">Light</string>
+    <string name="detection_sensitivity">Detection Sensitivity</string>
+    <string name="sensitivity_desc">Adjust how aggressively the app detects skip buttons</string>
+    <string name="clear_data">Clear All Data</string>
+    <string name="clear_data_desc">Delete all skip history and statistics</string>
+    <string name="about">About</string>
+    <string name="version">Version %s</string>
+
+    <!-- About Section -->
+    <string name="author">Author: Daniel</string>
+    <string name="about_disclaimer">本APP仅用于技术交流，严禁用于商业用途，请加入微信群交流。\n兄台若肯慷慨解囊，惠赐些许碎银，在下也好换几壶浊酒解馋，定当感激不尽！</string>
+
+    <!-- Time formats -->
+    <string name="time_format_hours">%dh %dm</string>
+    <string name="time_format_minutes">%dm</string>
+    <string name="time_format_seconds">%ds</string>
+    
+    <!-- Dialogs -->
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear_data_confirm">Are you sure you want to delete all skip history? This cannot be undone.</string>
+    
+    <!-- Relative time -->
+    <string name="time_5m_ago">5m ago</string>
+    <string name="time_2h_ago">2h ago</string>
+    <string name="time_1w_ago">1w ago</string>
+    <string name="time_3h_ago">3h ago</string>
+    <string name="time_yesterday">Yesterday</string>
+    <string name="time_today">Today</string>
+</resources>
